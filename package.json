@@ -1,0 +1,60 @@
+{
+  "name": "gta5rp-wiki-api",
+  "version": "0.1.0",
+  "description": "Unofficial TypeScript client for GTA5RP Wiki live map & property snapshots",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "LICENSE",
+    "README.md",
+    "README.ru.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test dist/**/*.test.js",
+    "example:snapshot": "node dist/examples/snapshot.js",
+    "example:watch-all": "node dist/examples/watch-all.js",
+    "example:free-now": "node dist/examples/free-now.js",
+    "example:coverage": "node dist/examples/coverage.js",
+    "prepublishOnly": "npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "gta5rp",
+    "gta5",
+    "typescript",
+    "api",
+    "wiki",
+    "real-estate",
+    "unofficial",
+    "nodejs",
+    "rage-mp",
+    "map"
+  ],
+  "license": "MIT",
+  "author": "Adnan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nanda070/GTA5RP-Wiki-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nanda070/GTA5RP-Wiki-API/issues"
+  },
+  "homepage": "https://github.com/Nanda070/GTA5RP-Wiki-API#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}
