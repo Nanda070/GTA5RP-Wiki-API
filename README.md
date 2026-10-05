@@ -16,4 +16,4 @@ Unofficial TypeScript client for [wiki.gta5rp.com](https://wiki.gta5rp.com) live
 npm install gta5rp-wiki-api
 ```
 
-[MIT](LICENSE) © 2026 Adnan
+[MIT](LICENSE) © 2026 Nanda

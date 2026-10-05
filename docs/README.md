@@ -130,4 +130,4 @@ This project is **unofficial** and **not affiliated with, endorsed by, or connec
 
 ## License
 
-[MIT](../LICENSE) © 2026 Adnan
+[MIT](../LICENSE) © 2026 Nanda
