@@ -15,9 +15,7 @@
     "dist",
     "docs",
     "LICENSE",
-    "README.md",
-    "README.ru.md",
-    "CHANGELOG.md"
+    "README.md"
   ],
   "scripts": {
     "build": "tsc",

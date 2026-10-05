@@ -59,7 +59,7 @@ npm run example:coverage
 | `src/watcher.ts` / `store.ts` | Поллинг |
 | `src/types.ts` | Типы + `ALL_SERVERS` |
 | `src/examples/` | Демо |
-| `docs/` | Гайды EN/RU |
+| `docs/` | README, гайды, участие, changelog, security |
 
 ## Правила
 
@@ -71,4 +71,4 @@ npm run example:coverage
 
 ## Лицензия
 
-Внося вклад, вы соглашаетесь с публикацией под [MIT](LICENSE).
+Внося вклад, вы соглашаетесь с публикацией под [MIT](../LICENSE).

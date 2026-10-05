@@ -302,6 +302,6 @@ findServerById("lapuerta")?.name;   // "La Puerta"
 
 ## Related
 
-- [README](../../README.md)
-- [CONTRIBUTING](../../CONTRIBUTING.md)
-- Russian guide: [docs/ru/guide.md](../ru/guide.md)
+- [README](../README.md)
+- [CONTRIBUTING](../CONTRIBUTING.md)
+- Russian guide: [ru/guide.md](../ru/guide.md)

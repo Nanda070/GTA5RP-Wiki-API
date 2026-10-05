@@ -59,7 +59,7 @@ Live examples hit `wiki.gta5rp.com` — keep concurrency reasonable and avoid ti
 | `src/watcher.ts` / `store.ts` | Polling helpers |
 | `src/types.ts` | Shared types + `ALL_SERVERS` |
 | `src/examples/` | Runnable demos |
-| `docs/` | EN/RU guides |
+| `docs/` | READMEs, guides, contributing, changelog, security |
 
 ## Guidelines
 
@@ -71,4 +71,4 @@ Live examples hit `wiki.gta5rp.com` — keep concurrency reasonable and avoid ti
 
 ## License
 
-By contributing, you agree your work is released under the [MIT License](LICENSE).
+By contributing, you agree your work is released under the [MIT License](../LICENSE).

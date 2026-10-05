@@ -6,7 +6,7 @@
 
 > **Не связано с GTA5RP.** Это community-проект. Формат HTML/RSC вики может измениться без предупреждения и сломать парсинг до обновления библиотеки.
 
-[English](README.md) · [Русский](README.ru.md) · [Usage guide](docs/en/guide.md) · [Руководство](docs/ru/guide.md)
+[English](README.md) · [Русский](README.ru.md) · [Usage guide](en/guide.md) · [Руководство](ru/guide.md)
 
 ## Установка
 
@@ -73,7 +73,7 @@ const bizCatalog = await client.getBusinessesCatalog();
 | `loadSnapshotStore` / `saveSnapshotStore` | Сохранение состояния на диск |
 | `ALL_SERVERS` | Список серверов вики |
 
-Подробный гайд: **[docs/ru/guide.md](docs/ru/guide.md)**.
+Подробный гайд: **[ru/guide.md](ru/guide.md)**.
 
 ## Серверы
 
@@ -117,12 +117,12 @@ npm run example:coverage      # покрытие полей
 ## Ссылки
 
 - Вики: [https://wiki.gta5rp.com](https://wiki.gta5rp.com)
-- Гайд (EN): [docs/en/guide.md](docs/en/guide.md)
-- Гайд (RU): [docs/ru/guide.md](docs/ru/guide.md)
+- Гайд (EN): [en/guide.md](en/guide.md)
+- Гайд (RU): [ru/guide.md](ru/guide.md)
 - Участие: [CONTRIBUTING.md](CONTRIBUTING.md) · [CONTRIBUTING.ru.md](CONTRIBUTING.ru.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
 - Безопасность: [SECURITY.md](SECURITY.md)
-- Лицензия: [MIT](LICENSE)
+- Лицензия: [MIT](../LICENSE)
 
 ## Отказ от ответственности
 
@@ -130,4 +130,4 @@ npm run example:coverage      # покрытие полей
 
 ## Лицензия
 
-[MIT](LICENSE) © 2026 Adnan
+[MIT](../LICENSE) © 2026 Adnan
