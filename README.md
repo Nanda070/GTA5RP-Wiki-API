@@ -8,7 +8,6 @@ Unofficial TypeScript client for [wiki.gta5rp.com](https://wiki.gta5rp.com) live
 - [Русский README](docs/README.ru.md)
 - [Usage guide (EN)](docs/en/guide.md)
 - [Руководство (RU)](docs/ru/guide.md)
-- [Contributing](docs/CONTRIBUTING.md) · [Участие](docs/CONTRIBUTING.ru.md)
 - [Changelog](docs/CHANGELOG.md)
 - [Security](docs/SECURITY.md)
 

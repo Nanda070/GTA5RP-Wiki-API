@@ -119,7 +119,6 @@ npm run example:coverage      # покрытие полей
 - Вики: [https://wiki.gta5rp.com](https://wiki.gta5rp.com)
 - Гайд (EN): [en/guide.md](en/guide.md)
 - Гайд (RU): [ru/guide.md](ru/guide.md)
-- Участие: [CONTRIBUTING.md](CONTRIBUTING.md) · [CONTRIBUTING.ru.md](CONTRIBUTING.ru.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
 - Безопасность: [SECURITY.md](SECURITY.md)
 - Лицензия: [MIT](../LICENSE)

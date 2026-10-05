@@ -119,7 +119,6 @@ npm run example:coverage      # field coverage probe
 - Wiki: [https://wiki.gta5rp.com](https://wiki.gta5rp.com)
 - Guide (EN): [en/guide.md](en/guide.md)
 - Guide (RU): [ru/guide.md](ru/guide.md)
-- Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Changelog: [CHANGELOG.md](CHANGELOG.md)
 - Security: [SECURITY.md](SECURITY.md)
 - License: [MIT](../LICENSE)
