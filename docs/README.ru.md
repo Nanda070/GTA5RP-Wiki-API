@@ -130,4 +130,4 @@ npm run example:coverage      # покрытие полей
 
 ## Лицензия
 
-[MIT](../LICENSE) © 2026 Adnan
+[MIT](../LICENSE) © 2026 Nanda
