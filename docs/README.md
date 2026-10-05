@@ -102,7 +102,7 @@ For ownership transfers, territories, and defense changes, use `pollAllChanges` 
 
 ## Latency caveat
 
-Data freshness matches the **wiki UI** (`fetchedAt` / `fetchedAtMs`), not the in-game tick. Snapshots can lag behind the game world by minutes. Prefer `poll*` / `createWatcher` rather than assuming real-time.
+Data freshness matches the **wiki UI** (`fetchedAt` / `fetchedAtMs`), not the in-game tick. The wiki republishes snapshots roughly once an hour, so data can lag behind the game world by up to an hour. Prefer `poll*` / `createWatcher` rather than assuming real-time.
 
 ## Examples
 

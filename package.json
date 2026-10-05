@@ -13,13 +13,16 @@
   },
   "files": [
     "dist",
+    "!dist/**/*.test.*",
+    "!dist/test-utils.*",
+    "!dist/examples",
     "docs",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && node --test dist/**/*.test.js",
+    "test": "npm run build && node scripts/run-tests.mjs",
     "example:snapshot": "node dist/examples/snapshot.js",
     "example:watch-all": "node dist/examples/watch-all.js",
     "example:free-now": "node dist/examples/free-now.js",

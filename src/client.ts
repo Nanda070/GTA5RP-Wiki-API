@@ -8,11 +8,13 @@ import {
 import { parseInitialServerDataFromHtml } from "./parse.js";
 import {
   ALL_SERVERS,
+  findServerById,
   type AllServersPollResult,
   type BusinessesCatalog,
   type DetectOptions,
   type EnrichedServerState,
   type RealEstateCatalog,
+  type ServerInfo,
   type ServerPollResult,
   type ServerSlug,
   type ServerSnapshotResult,
@@ -77,6 +79,7 @@ export class WikiMapClient {
 
   /** Full live snapshot from map page SSR. */
   async getServerSnapshot(server: ServerSlug): Promise<ServerSnapshotResult> {
+    requireServer(server);
     const { url, html } = await this.fetchHtml(`/map?server=${encodeURIComponent(server)}`, server);
     const data = parseInitialServerDataFromHtml(html);
 
@@ -95,8 +98,17 @@ export class WikiMapClient {
    * apartment buildings with freeCount (not per-unit owners).
    */
   async getRealEstateCatalog(server: ServerSlug): Promise<RealEstateCatalog> {
+    const info = requireServer(server);
     const { html } = await this.fetchHtml(`/realestate?server=${encodeURIComponent(server)}`, server);
-    return parseRealEstateCatalogFromHtml(html);
+    const catalog = parseRealEstateCatalogFromHtml(html);
+
+    // Wiki silently serves its default server when it does not recognise the slug.
+    if (catalog.server !== "" && Number(catalog.server) !== info.number) {
+      throw new Error(
+        `Wiki returned real-estate catalog for server ${catalog.server} instead of ${sid(info)} (${server})`,
+      );
+    }
+    return catalog;
   }
 
   /**
@@ -228,6 +240,19 @@ export class WikiMapClient {
 
     return { results: settled, events, store };
   }
+}
+
+/** Map pages answer 200 with empty data for unknown slugs, so fail before the request. */
+function requireServer(server: string): ServerInfo {
+  const info = findServerById(server);
+  if (!info) {
+    throw new Error(`Unknown server "${server}". Known servers: ${ALL_SERVERS.map((s) => s.id).join(", ")}`);
+  }
+  return info;
+}
+
+function sid(info: ServerInfo): string {
+  return String(info.number).padStart(2, "0");
 }
 
 async function mapPool<T, R>(

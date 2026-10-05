@@ -19,7 +19,7 @@ export {
 } from "./inventory.js";
 export { parseInitialServerDataFromHtml } from "./parse.js";
 export { loadSnapshotStore, saveSnapshotStore, snapshotFetchedAtMs } from "./store.js";
-export { createWatcher, type WatcherOptions } from "./watcher.js";
+export { DEFAULT_STALE_AFTER_MS, createWatcher, type WatcherOptions } from "./watcher.js";
 export {
   ALL_SERVERS,
   findServerById,

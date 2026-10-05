@@ -13,13 +13,21 @@ export async function loadSnapshotStore(filePath: string): Promise<SnapshotStore
   try {
     const raw = await readFile(filePath, "utf8");
     const parsed = JSON.parse(raw) as PersistedStore | SnapshotStore;
-    if ("servers" in parsed && parsed.servers) return parsed.servers;
-    return parsed as SnapshotStore;
+    if ("servers" in parsed && parsed.servers) return reviveDates(parsed.servers);
+    return reviveDates(parsed as SnapshotStore);
   } catch (e) {
     const err = e as NodeJS.ErrnoException;
     if (err.code === "ENOENT") return {};
     throw e;
   }
+}
+
+/** JSON turns `meta.fetchedAt` into an ISO string; restore the Date the types promise. */
+function reviveDates(store: SnapshotStore): SnapshotStore {
+  for (const result of Object.values(store)) {
+    if (result) result.meta.fetchedAt = new Date(result.meta.fetchedAt);
+  }
+  return store;
 }
 
 export async function saveSnapshotStore(filePath: string, store: SnapshotStore): Promise<void> {

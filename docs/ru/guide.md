@@ -241,7 +241,7 @@ const watcher = createWatcher(client, {
   mode: "changes", // или "slits"
   // servers: ["blackberry", "lapuerta"],
   detect: { kinds: ["house_became_free", "business_became_free"] },
-  staleAfterMs: 20 * 60_000,
+  staleAfterMs: 90 * 60_000,
   onPoll: async ({ events, staleServers }) => {
     console.log(events, "stale:", staleServers);
   },
@@ -253,7 +253,7 @@ watcher.start();
 // watcher.getStore() / setStore(store)
 ```
 
-`staleServers`: возраст снимка > `staleAfterMs` (по умолчанию 20 минут).
+`staleServers`: возраст снимка > `staleAfterMs` (по умолчанию 90 минут, экспортируется как `DEFAULT_STALE_AFTER_MS`). Вики перевыпускает снимки примерно раз в час, поэтому порог ниже будет помечать исправные серверы.
 
 ---
 

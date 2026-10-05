@@ -1,4 +1,4 @@
-import { extractEscapedJsonObject } from "./rsc.js";
+import { extractEscapedJsonObject, readFlightObjectContaining } from "./rsc.js";
 import { findServerById, type ServerSlug } from "./types.js";
 import type {
   Business,
@@ -13,8 +13,23 @@ import type {
   ServerSnapshotResult,
 } from "./types.js";
 
+/**
+ * Find the catalog object by its array field. Prefers the decoded flight
+ * payload; falls back to raw fragments where quotes are escaped as \".
+ */
+function readCatalogObject(html: string, arrayKey: string, label: string): Record<string, unknown> {
+  let parsed: unknown;
+  try {
+    parsed = readFlightObjectContaining(html, `"${arrayKey}":[`);
+    if (parsed === undefined) parsed = extractEscapedJsonObject(html, `\\"${arrayKey}\\":[`);
+  } catch (e) {
+    throw new Error(`${label} catalog not found or unreadable in HTML: ${(e as Error).message}`);
+  }
+  return parsed as Record<string, unknown>;
+}
+
 export function parseRealEstateCatalogFromHtml(html: string): RealEstateCatalog {
-  const parsed = extractEscapedJsonObject(html, String.raw`\"houses\":[`) as Record<string, unknown>;
+  const parsed = readCatalogObject(html, "houses", "Real-estate");
   if (!Array.isArray(parsed.houses) || !Array.isArray(parsed.apartmentHouses)) {
     throw new Error("Real-estate catalog missing houses/apartmentHouses");
   }
@@ -31,7 +46,7 @@ export function parseRealEstateCatalogFromHtml(html: string): RealEstateCatalog 
 }
 
 export function parseBusinessesCatalogFromHtml(html: string): BusinessesCatalog {
-  const parsed = extractEscapedJsonObject(html, String.raw`\"servers\":[`) as Record<string, unknown>;
+  const parsed = readCatalogObject(html, "servers", "Businesses");
   if (!Array.isArray(parsed.servers) || typeof parsed.fetchedAtMs !== "number") {
     throw new Error("Businesses catalog missing servers/fetchedAtMs");
   }

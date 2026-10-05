@@ -243,7 +243,7 @@ const watcher = createWatcher(client, {
   mode: "changes", // or "slits"
   // servers: ["blackberry", "lapuerta"],
   detect: { kinds: ["house_became_free", "business_became_free"] },
-  staleAfterMs: 20 * 60_000,
+  staleAfterMs: 90 * 60_000,
   onPoll: async ({ events, staleServers }) => {
     console.log(events, "stale:", staleServers);
   },
@@ -255,7 +255,7 @@ watcher.start();
 // watcher.getStore() / setStore(store)
 ```
 
-`staleServers`: snapshot age > `staleAfterMs` (default 20 minutes).
+`staleServers`: snapshot age > `staleAfterMs` (default 90 minutes, exported as `DEFAULT_STALE_AFTER_MS`). The wiki republishes snapshots roughly once an hour, so a lower threshold flags healthy servers.
 
 ---
 

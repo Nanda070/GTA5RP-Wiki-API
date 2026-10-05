@@ -13,18 +13,24 @@ export interface WatcherOptions {
   detect?: DetectOptions;
   /** Use full change detection (default) or slits-only. */
   mode?: "changes" | "slits";
-  /** Alert if wiki snapshot age exceeds this (ms). Default 20 minutes. */
+  /** Alert if wiki snapshot age exceeds this (ms). Default 90 minutes. */
   staleAfterMs?: number;
   onPoll?: (result: AllServersPollResult & { staleServers: ServerSlug[] }) => void | Promise<void>;
   onError?: (error: unknown) => void | Promise<void>;
 }
 
 /**
+ * The wiki republishes its snapshots roughly once an hour, so a healthy
+ * snapshot can be up to ~60 minutes old; anything older missed an update.
+ */
+export const DEFAULT_STALE_AFTER_MS = 90 * 60_000;
+
+/**
  * Continuous multi-server watcher. Keeps store in memory between ticks.
  */
 export function createWatcher(client: WikiMapClient, options: WatcherOptions = {}) {
   const intervalMs = options.intervalMs ?? 30_000;
-  const staleAfterMs = options.staleAfterMs ?? 20 * 60_000;
+  const staleAfterMs = options.staleAfterMs ?? DEFAULT_STALE_AFTER_MS;
   const mode = options.mode ?? "changes";
   let store: SnapshotStore = {};
   let timer: NodeJS.Timeout | null = null;
